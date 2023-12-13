@@ -18,10 +18,13 @@ export const presencesEventResource = '/PresencasEvento'
 export const comentaryEventResource = "/ComentariosEvento"
 
 export const myComentaryEventResource = "/ComentariosEvento/BuscarPorIdUsuario"
+
 /** 
 * Route for the Next Events
 */
 export const nextEventsResource = 'Evento/ListarProximos'
+
+export const LastEventsResource = 'Evento/ListarAntigos'
 
 /** 
 * Route for Type of Event
