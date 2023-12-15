@@ -1,0 +1,25 @@
+.detalhes-evento-flex{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.detalhes-evento-page{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.detalhe-evento-propriedade{
+    font-size: 20px;
+}
+
+.lista-comentarios-section{
+    background-color: var(--color-red);
+    width: 100%;
+    padding-bottom: 50px;
+    overflow: auto;
+    margin-top: 50px;
+}
