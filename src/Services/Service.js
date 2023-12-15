@@ -24,7 +24,7 @@ export const myComentaryEventResource = "/ComentariosEvento/BuscarPorIdUsuario"
 */
 export const nextEventsResource = 'Evento/ListarProximos'
 
-export const LastEventsResource = 'Evento/ListarAntigos'
+export const PastEventsResource = 'Evento/ListarAntigos'
 
 /** 
 * Route for Type of Event

@@ -11,7 +11,7 @@ import {useNavigate} from "react-router-dom"
 import "./LoginPage.css"
 
 const LoginPage = () => {
-  const [user, setUser] = useState({email: "comum@comum", senha: "comum"})
+  const [user, setUser] = useState({email: "dudu@gmail", senha: "dudu777"})
   const { userData, setUserData } = useContext(UserContext)
   const navigate = useNavigate();
 

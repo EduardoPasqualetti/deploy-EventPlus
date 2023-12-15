@@ -9,14 +9,14 @@ import PastEvent from "../../components/PastEvent/PastEvents"
 import Container from "../../components/Container/Container";
 import Titulo from "../../components/Titulo/Titulo";
 import api from "../../Services/Service";
-import { nextEventsResource, LastEventsResource } from "../../Services/Service";
+import { nextEventsResource, PastEventsResource } from "../../Services/Service";
 import Notification from "../../components/Notification/Notification";
 
 const HomePage = () => {
 
   const [notifyUser, setNotifyUser] = useState();
   const [nextEvents, setNextEvents] = useState([]);
-  const [lastEvents, setLastEvents] = useState([])
+  const [pastEvents, setPastEvents] = useState([])
   
   useEffect(() => {
     async function getNextEvents() {
@@ -26,8 +26,6 @@ const HomePage = () => {
 
         setNextEvents(dados);
 
-        const retorno = await api.get(LastEventsResource)
-        setLastEvents(retorno.data)
       } catch (error) {
         setNotifyUser({
           titleNote: "Erro",
@@ -39,6 +37,17 @@ const HomePage = () => {
         });
       }
     }
+
+    async function getPastEvents() {
+      try {
+        const retorno = await api.get(PastEventsResource)
+        setPastEvents(retorno.data)
+      } catch (error) {
+        console.log("erro na api");
+      }
+    }
+
+    getPastEvents();
     getNextEvents();
   }, []);
 
@@ -66,7 +75,7 @@ const HomePage = () => {
             </div>
             <Titulo titleText={"Eventos Passados"} />
             <div className="events-box">
-              {lastEvents.map((e) => {
+              {pastEvents.map((e) => {
                 return (
                   <PastEvent
                     key={e.idEvento}
@@ -74,6 +83,7 @@ const HomePage = () => {
                     description={e.descricao}
                     eventDate={e.dataEvento}
                     idEvento={e.idEvento}
+                    buttonLink={`/detalhes-evento/${e.idEvento}`}
                   />
                 );
               })}

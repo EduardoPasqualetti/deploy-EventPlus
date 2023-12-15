@@ -2,8 +2,9 @@ import React from "react";
 import "./PastEvent.css";
 import { dateFormatDbToView } from "../../Utils/stringFunctions";
 import { Tooltip } from "react-tooltip";
+import { Link } from "react-router-dom";
 
-const PastEvents = ({ title, description, eventDate, idEvento }) => {
+const PastEvents = ({ title, description, eventDate, idEvento, buttonLink }) => {
     function vizualizar() {
         alert("Vizualizar eventos passados")
     }
@@ -23,15 +24,7 @@ const PastEvents = ({ title, description, eventDate, idEvento }) => {
 
       <p className="event-card__description">{dateFormatDbToView(eventDate)}</p>
 
-      <a
-        href=""
-        onClick={() => {
-          vizualizar(idEvento);
-        }}
-        className="event-card__connect-link"
-      >
-        Vizualizar
-      </a>
+      <Link to={buttonLink} className="event-card__connect-link">Vizualizar</Link>
     </article>
   );
 };
